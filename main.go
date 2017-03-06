@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	static "github.com/Code-Hex/echo-static"
 	assetfs "github.com/elazarl/go-bindata-assetfs"
 
@@ -9,6 +12,11 @@ import (
 )
 
 //go:generate go-bindata data/... _assets/... node_modules/marked/marked.min.js
+
+var (
+	// SavePath ...
+	SavePath string
+)
 
 // NewAssets ...
 func NewAssets(root string) *assetfs.AssetFS {
@@ -20,8 +28,18 @@ func NewAssets(root string) *assetfs.AssetFS {
 	}
 }
 
+func initSavePath(savePath string) error {
+	SavePath = savePath
+	return os.MkdirAll(SavePath, 0777)
+}
+
 func main() {
 	c := parseArgs()
+	err := initSavePath(c.storePath)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(-1)
+	}
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(static.ServeRoot("/_assets", NewAssets("_assets")))

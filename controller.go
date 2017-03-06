@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"path/filepath"
 
 	"github.com/labstack/echo"
 	"github.com/schollz/jsonstore"
@@ -31,13 +32,13 @@ func storeJSON(mk markdown) (err error) {
 		return
 	}
 
-	err = jsonstore.Save(ks, storeFile)
+	err = jsonstore.Save(ks, filepath.Join(SavePath, storeFile))
 	return
 }
 
 func getMarkdown(c echo.Context) (err error) {
 	var ks2 *jsonstore.JSONStore
-	ks2, err = jsonstore.Open(storeFile)
+	ks2, err = jsonstore.Open(filepath.Join(SavePath, storeFile))
 	if err != nil {
 		return
 	}
