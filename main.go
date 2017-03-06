@@ -21,6 +21,7 @@ func NewAssets(root string) *assetfs.AssetFS {
 }
 
 func main() {
+	c := parseArgs()
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(static.ServeRoot("/_assets", NewAssets("_assets")))
@@ -28,5 +29,5 @@ func main() {
 	e.GET("/", getRoot)
 	e.GET("/api/markdown", getMarkdown)
 	e.POST("/api/markdown", postMarkdown)
-	e.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start(":" + c.port))
 }
