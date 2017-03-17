@@ -13,7 +13,7 @@ import (
 
 //go:generate cp node_modules/marked/lib/marked.js _assets/
 //go:generate cp node_modules/jquery/dist/jquery.min.js _assets/
-//go:generate go-bindata data/... _assets/... node_modules/marked/marked.min.js
+//go:generate go-bindata data/... _assets/...
 
 var (
 	// SavePath ...
