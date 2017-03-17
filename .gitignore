@@ -1,4 +1,6 @@
 *.gz
+]
+/bindata.go
 node_modules/
-/package.json
 *.exe
+*.exe~

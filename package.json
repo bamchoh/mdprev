@@ -1,0 +1,16 @@
+{
+  "name": "test_markdown",
+  "version": "1.0.0",
+  "description": "1. Execute with {test 1}\r 1. Execute with {test 2}",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "highlight.js": "^9.10.0",
+    "jquery": "^3.2.0",
+    "marked": "^0.3.6"
+  }
+}
