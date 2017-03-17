@@ -1,6 +1,5 @@
 *.gz
 ]
-/bindata.go
 node_modules/
 *.exe
 *.exe~
