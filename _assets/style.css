@@ -3,6 +3,7 @@ textarea {
 	font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
 	width: 100%;
 	height: 100%;
+	resize: none;
 }
 
 html {
@@ -13,15 +14,16 @@ body {
 	height: 100%;
 }
 
-div.editor {
-	padding: 2em;
+div.editor, div.preview {
+	padding: 0.25em;
 	float: left;
 	width: 50%;
 	height: 100%;
 }
 
 div#preview {
-	padding: 2em;
 	float: left;
-	width: 50%;
+	width: 100%;
+	height: 100%;
+	overflow-y:scroll;
 }
